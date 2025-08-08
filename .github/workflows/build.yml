@@ -39,24 +39,31 @@ jobs:
         name: mueve-mouse-${{ runner.os }}-${{ matrix.python-version }}
         path: dist/
     
-    - name: Create installer (Windows)
+    - name: Create Windows package
       if: matrix.os == 'windows-latest'
       run: |
-        # Aquí iría la lógica para crear el instalador NSIS
-        echo "Instalador Windows creado"
+        chmod +x create_windows_package.sh
+        ./create_windows_package.sh
     
     - name: Create DMG (macOS)
       if: matrix.os == 'macos-latest'
       run: |
         brew install create-dmg
+        chmod +x create_dmg.sh
         ./create_dmg.sh
     
-    - name: Create AppImage (Linux)
+    - name: Create Linux package
       if: matrix.os == 'ubuntu-latest'
       run: |
-        wget -c "https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage"
-        chmod +x appimagetool-x86_64.AppImage
-        ./create_appimage.sh
+        chmod +x create_linux_package.sh
+        ./create_linux_package.sh
+    
+    - name: Upload Linux package
+      if: matrix.os == 'ubuntu-latest'
+      uses: actions/upload-artifact@v3
+      with:
+        name: mueve-mouse-linux-package
+        path: mueve-mouse-linux.tar.gz
 
   release:
     needs: build
@@ -78,9 +85,9 @@ jobs:
           ## Mueve Mouse v${{ github.ref_name }}
           
           ### Descargas
-          - Windows: MueveMouse_Setup.exe
+          - Windows: mueve-mouse-windows.zip
           - macOS: MueveMouse.dmg
-          - Linux: MueveMouse.AppImage
+          - Linux: mueve-mouse-linux.tar.gz
           
           ### Cambios
           - Mejoras en la interfaz de usuario
@@ -95,6 +102,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./mueve-mouse-windows-latest-3.10/MueveMouse_Setup.exe
-        asset_name: MueveMouse_Setup.exe
-        asset_content_type: application/octet-stream
+        asset_path: ./mueve-mouse-linux-package/mueve-mouse-linux.tar.gz
+        asset_name: mueve-mouse-linux.tar.gz
+        asset_content_type: application/gzip
