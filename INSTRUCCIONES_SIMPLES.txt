@@ -1,0 +1,43 @@
+🍎 MUEVE MOUSE - Instalación Simple
+
+📋 PASOS PARA INSTALAR:
+
+1️⃣ DESCARGAR
+   • Descarga MueveMouse.dmg desde GitHub
+   • Haz doble clic para abrir
+
+2️⃣ INSTALAR (3 opciones fáciles)
+
+   OPCIÓN A - Más Fácil:
+   • Clic derecho en MueveMouse.app
+   • Seleccionar "Abrir"
+   • Clic en "Abrir" en el diálogo
+
+   OPCIÓN B - Desde Finder:
+   • Arrastra MueveMouse.app a la carpeta Aplicaciones
+   • Ve a Aplicaciones y haz doble clic
+
+   OPCIÓN C - Terminal (si las anteriores no funcionan):
+   • Abre Terminal
+   • Copia y pega: sudo xattr -rd com.apple.quarantine /Applications/MueveMouse.app
+   • Ingresa tu contraseña
+
+3️⃣ USAR
+   • Abre MueveMouse desde Aplicaciones
+   • Configura el intervalo (ej: 30 segundos)
+   • Clic en "Iniciar Movimiento"
+
+❓ ¿POR QUÉ APARECE "APLICACIÓN DAÑADA"?
+   • Es una protección de seguridad de macOS
+   • No significa que la app esté rota
+   • Solo necesitas "confiar" en la aplicación
+
+🔧 SOLUCIÓN RÁPIDA:
+   • Clic derecho → Abrir → Abrir
+   • ¡Eso es todo!
+
+📞 ¿Necesitas ayuda?
+   • GitHub: https://github.com/panasabena/mueve_mouse
+   • Issues: https://github.com/panasabena/mueve_mouse/issues
+
+✨ ¡Disfruta usando MueveMouse!

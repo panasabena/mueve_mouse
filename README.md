@@ -1,208 +1,158 @@
-# Mueve Mouse 🖱️
+# 🖱️ MueveMouse
 
-Una aplicación profesional para mantener tu pantalla activa moviendo el mouse automáticamente. Perfecta para evitar que tu computadora se bloquee durante presentaciones, videoconferencias o cuando necesitas mantener la pantalla activa.
+Una aplicación simple para mover automáticamente el cursor del mouse, útil para mantener la computadora activa durante presentaciones o evitar que se bloquee por inactividad.
 
 ## ✨ Características
 
-- **Interfaz gráfica intuitiva**: Fácil de usar con controles claros
-- **Configuración personalizable**: Ajusta intervalos y posiciones del mouse
-- **Guardado automático**: Tu configuración se guarda automáticamente
-- **Modo de prueba**: Prueba el movimiento antes de activarlo
-- **Detención de emergencia**: Mueve el mouse a las esquinas para detener
-- **Multiplataforma**: Funciona en Windows, macOS y Linux
-- **Sin dependencias externas**: Ejecutable independiente
+- **Interfaz gráfica intuitiva** con Tkinter
+- **Configuración de intervalo** personalizable
+- **Posiciones de mouse** configurables
+- **Guardado de configuración** automático
+- **Multiplataforma** (Windows, macOS, Linux)
+- **Instalación simple** con ejecutables precompilados
 
 ## 🚀 Instalación
 
-### Opción 1: Instalador (Recomendado)
+### 📱 macOS
 
-#### Windows
-1. Descarga el archivo `mueve-mouse-windows.zip`
-2. Extrae el archivo ZIP
-3. Ejecuta como administrador: `INSTALAR.bat`
-4. La aplicación se instalará automáticamente en el escritorio y menú inicio
-5. Para desinstalar: ejecutar `DESINSTALAR.bat` como administrador
+1. **Descargar**: [MueveMouse.dmg](https://github.com/panasabena/mueve_mouse/blob/main/MueveMouse.dmg)
+2. **Abrir**: Doble clic en el archivo .dmg
+3. **Instalar**: Arrastrar `MueveMouse.app` a la carpeta Aplicaciones
+4. **Ejecutar**: Abrir desde Aplicaciones o Spotlight
 
-#### macOS
-1. Descarga el archivo `MueveMouse.dmg`
-2. Abre el archivo DMG
-3. Arrastra la aplicación a la carpeta Aplicaciones
-4. Ejecuta desde Aplicaciones
+**⚠️ Si aparece "aplicación dañada":**
+- **Opción A**: Clic derecho → Abrir → Abrir
+- **Opción B**: Terminal: `sudo xattr -rd com.apple.quarantine /Applications/MueveMouse.app`
+- **Opción C**: Preferencias del Sistema → Seguridad y Privacidad → Permitir
 
-**⚠️ Si macOS dice que la aplicación está "dañada":**
-- **Opción 1**: Ve a Preferencias del Sistema → Seguridad y Privacidad → "Permitir de todas formas"
-- **Opción 2**: En Terminal: `sudo xattr -rd com.apple.quarantine MueveMouse.app`
-- **Opción 3**: Clic derecho en la app → "Abrir"
+### 🪟 Windows
 
-#### Linux
-1. Descarga el archivo `mueve-mouse-linux.tar.gz`
-2. Extrae el archivo: `tar -xzf mueve-mouse-linux.tar.gz`
-3. Entra al directorio: `cd mueve-mouse-linux`
-4. Instala como root: `sudo ./install.sh`
-5. Ejecuta desde el menú de aplicaciones o con: `mueve-mouse`
+1. **Descargar**: [mueve-mouse-windows.zip](https://github.com/panasabena/mueve_mouse/releases)
+2. **Extraer**: Descomprimir el archivo .zip
+3. **Instalar**: Ejecutar `INSTALAR.bat` como administrador
+4. **Ejecutar**: Buscar "MueveMouse" en el menú inicio
 
-### Opción 2: Desde el código fuente
+### 🐧 Linux
 
-#### Requisitos previos
-- Python 3.7 o superior
-- pip (gestor de paquetes de Python)
+#### Opción 1: Ejecutable precompilado (Recomendado)
+1. **Descargar**: [mueve-mouse-linux.tar.gz](https://github.com/panasabena/mueve_mouse/releases)
+2. **Extraer**: `tar -xzf mueve-mouse-linux.tar.gz`
+3. **Instalar**: `cd mueve-mouse-linux && ./install.sh`
+4. **Ejecutar**: Buscar "MueveMouse" en el menú de aplicaciones
 
-#### Pasos de instalación
+#### Opción 2: Construir desde código
 ```bash
-# 1. Clona o descarga el proyecto
-git clone https://github.com/tu-usuario/mueve-mouse.git
-cd mueve-mouse
+# Clonar repositorio
+git clone https://github.com/panasabena/mueve_mouse.git
+cd mueve_mouse
 
-# 2. Instala las dependencias
-pip install -r requirements.txt
+# Usar Docker (recomendado)
+./build_with_docker.sh
 
-# 3. Ejecuta la aplicación
-python mueve_mouse.py
+# O construir directamente en Linux
+./build_linux.sh
 ```
 
-## 📖 Cómo usar
+## 🎮 Uso
 
-### Inicio rápido
-1. **Abrir la aplicación**: Ejecuta Mueve Mouse desde el menú de inicio o escritorio
-2. **Configurar**: Ajusta el intervalo y las posiciones del mouse según tus necesidades
-3. **Probar**: Usa el botón "Probar movimiento" para verificar la configuración
-4. **Iniciar**: Presiona "Iniciar" para comenzar el movimiento automático
-5. **Detener**: Usa "Detener" o cierra la aplicación para parar
+1. **Abrir** MueveMouse
+2. **Configurar** el intervalo (ej: 30 segundos)
+3. **Hacer clic** en "Iniciar Movimiento"
+4. **¡Listo!** El mouse se moverá automáticamente
 
-### Configuración avanzada
+### ⚙️ Configuración
 
-#### Intervalo de tiempo
-- **Recomendado**: 5-10 segundos
-- **Mínimo**: 1 segundo
-- **Máximo**: Sin límite (pero no recomendado más de 60 segundos)
-
-#### Posiciones del mouse
-- **Posición 1**: Primera posición donde se moverá el mouse
-- **Posición 2**: Segunda posición donde se moverá el mouse
-- **Obtener posición actual**: Usa este botón para ver dónde está tu mouse
-
-#### Consejos de configuración
-- **Movimiento sutil**: Usa posiciones cercanas (ej: 300,310 y 320,310)
-- **Movimiento visible**: Usa posiciones más separadas para mayor efecto
-- **Evitar interferencias**: No uses posiciones donde tengas botones o enlaces importantes
-
-### Funciones especiales
-
-#### Detención de emergencia
-- **Método 1**: Mueve el mouse a cualquier esquina de la pantalla
-- **Método 2**: Presiona Ctrl+C en la consola (si ejecutas desde terminal)
-- **Método 3**: Usa el botón "Detener" en la aplicación
-
-#### Guardado automático
-- La configuración se guarda automáticamente en `mueve_mouse_config.json`
-- Se restaura automáticamente al abrir la aplicación
-- Puedes editar manualmente el archivo si es necesario
+- **Intervalo**: Tiempo entre movimientos (segundos)
+- **Posiciones**: Coordenadas X,Y donde mover el cursor
+- **Guardado**: La configuración se guarda automáticamente
 
 ## 🛠️ Desarrollo
 
-### Estructura del proyecto
-```
-mueve-mouse/
-├── mueve_mouse.py          # Aplicación principal
-├── requirements.txt         # Dependencias de Python
-├── mueve_mouse.spec        # Configuración de PyInstaller
-├── build.py                # Script de construcción
-├── installer_config.nsi    # Configuración del instalador
-├── README.md              # Este archivo
-└── LICENSE.txt            # Licencia del proyecto
-```
+### Requisitos
+- Python 3.8+
+- pip
 
-### Construir desde el código fuente
-
-#### Requisitos de desarrollo
-- Python 3.7+
-- PyInstaller
-- NSIS (solo para Windows)
-
-#### Pasos para construir
+### Instalación de dependencias
 ```bash
-# 1. Instalar dependencias de desarrollo
-pip install pyinstaller
+pip install -r requirements.txt
+```
 
-# 2. Ejecutar script de construcción
+### Ejecutar en desarrollo
+```bash
+python mueve_mouse.py
+```
+
+### Construir ejecutables
+
+#### macOS
+```bash
 python build.py
-
-# 3. Los ejecutables se crearán en la carpeta dist/
 ```
 
-### Crear instalador (Windows)
+#### Windows
 ```bash
-# 1. Instalar NSIS
-# Descarga desde: https://nsis.sourceforge.io/
+python build.py
+```
 
-# 2. Construir instalador
-makensis installer_config.nsi
+#### Linux
+```bash
+# Usar Docker (desde cualquier sistema)
+./build_with_docker.sh
+
+# O construir directamente en Linux
+./build_linux.sh
+```
+
+## 📦 Estructura del proyecto
+
+```
+MueveMouse/
+├── mueve_mouse.py          # Código principal
+├── requirements.txt         # Dependencias
+├── build.py                # Script de construcción
+├── build_linux.sh          # Construcción para Linux
+├── build_with_docker.sh    # Construcción con Docker
+├── Dockerfile              # Configuración Docker
+├── create_linux_package.sh # Crear paquete Linux
+├── create_windows_package.sh # Crear paquete Windows
+├── create_dmg.sh           # Crear DMG macOS
+├── .github/workflows/      # CI/CD automático
+└── README.md               # Documentación
 ```
 
 ## 🔧 Solución de problemas
 
-### Problemas comunes
+### macOS
+- **"Aplicación dañada"**: Ver sección de instalación
+- **Permisos**: Ir a Preferencias del Sistema → Seguridad
 
-#### La aplicación no inicia
-- **Verificar permisos**: Asegúrate de tener permisos de administrador
-- **Antivirus**: Algunos antivirus pueden bloquear la aplicación
-- **Dependencias**: Verifica que todas las dependencias estén instaladas
+### Windows
+- **Error de permisos**: Ejecutar como administrador
+- **Antivirus**: Agregar excepción si es necesario
 
-#### El mouse no se mueve
-- **Verificar posiciones**: Asegúrate de que las posiciones estén dentro de la pantalla
-- **Permisos de accesibilidad**: En macOS, puede necesitar permisos de accesibilidad
-- **Configuración**: Prueba con posiciones diferentes
+### Linux
+- **"Exec format error"**: Usar ejecutable compilado para Linux
+- **Dependencias**: Instalar `python3-tk` si falta
+- **Permisos**: `chmod +x MueveMouse`
 
-#### La aplicación se cierra inesperadamente
-- **Logs**: Revisa los logs en la consola
-- **Configuración**: Elimina el archivo de configuración y reinicia
-- **Reinstalar**: Desinstala y vuelve a instalar la aplicación
+## 🤝 Contribuir
 
-### Logs y debugging
-- Los logs se muestran en la consola si ejecutas desde terminal
-- El archivo de configuración está en: `mueve_mouse_config.json`
-- En Windows: `%APPDATA%\Mueve Mouse\`
-- En macOS: `~/Library/Application Support/Mueve Mouse/`
-- En Linux: `~/.config/Mueve Mouse/`
+1. Fork el proyecto
+2. Crear una rama (`git checkout -b feature/nueva-funcionalidad`)
+3. Commit los cambios (`git commit -am 'Agregar nueva funcionalidad'`)
+4. Push a la rama (`git push origin feature/nueva-funcionalidad`)
+5. Crear un Pull Request
 
-## 📝 Licencia
+## 📄 Licencia
 
-Este proyecto está bajo la Licencia MIT. Ver `LICENSE.txt` para más detalles.
+Este proyecto está bajo la Licencia MIT. Ver [LICENSE.txt](LICENSE.txt) para más detalles.
 
-## 🤝 Contribuciones
+## 🔗 Enlaces
 
-Las contribuciones son bienvenidas. Por favor:
-
-1. Haz un fork del proyecto
-2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
-3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
-4. Push a la rama (`git push origin feature/AmazingFeature`)
-5. Abre un Pull Request
-
-## 📞 Soporte
-
-Si tienes problemas o preguntas:
-
-- **Issues**: Abre un issue en GitHub
-- **Email**: contacto@tudominio.com
-- **Documentación**: Revisa este README
-
-## 🔄 Historial de versiones
-
-### v1.0.0
-- Primera versión estable
-- Interfaz gráfica completa
-- Configuración personalizable
-- Soporte multiplataforma
-- Instaladores profesionales
-
-## 🙏 Agradecimientos
-
-- **PyAutoGUI**: Por la funcionalidad de control del mouse
-- **Tkinter**: Por la interfaz gráfica
-- **PyInstaller**: Por el empaquetado multiplataforma
-- **NSIS**: Por los instaladores de Windows
+- **GitHub**: https://github.com/panasabena/mueve_mouse
+- **Issues**: https://github.com/panasabena/mueve_mouse/issues
+- **Releases**: https://github.com/panasabena/mueve_mouse/releases
 
 ---
 
-**¡Disfruta manteniendo tu pantalla activa! 🎉**
+**¡Gracias por usar MueveMouse! 🖱️✨**
