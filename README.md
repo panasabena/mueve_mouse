@@ -29,6 +29,11 @@ Una aplicación profesional para mantener tu pantalla activa moviendo el mouse a
 3. Arrastra la aplicación a la carpeta Aplicaciones
 4. Ejecuta desde Aplicaciones
 
+**⚠️ Si macOS dice que la aplicación está "dañada":**
+- **Opción 1**: Ve a Preferencias del Sistema → Seguridad y Privacidad → "Permitir de todas formas"
+- **Opción 2**: En Terminal: `sudo xattr -rd com.apple.quarantine MueveMouse.app`
+- **Opción 3**: Clic derecho en la app → "Abrir"
+
 #### Linux
 1. Descarga el archivo `mueve-mouse-linux.tar.gz`
 2. Extrae el archivo: `tar -xzf mueve-mouse-linux.tar.gz`
