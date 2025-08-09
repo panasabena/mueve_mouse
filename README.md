@@ -27,10 +27,16 @@ Una aplicación simple para mover automáticamente el cursor del mouse, útil pa
 
 ### 🪟 Windows
 
-1. **Descargar**: [mueve-mouse-windows.zip](https://github.com/panasabena/mueve_mouse/releases)
+1. **Descargar**: [mueve-mouse-windows-source.zip](https://github.com/panasabena/mueve_mouse/blob/main/mueve-mouse-windows-source.zip)
 2. **Extraer**: Descomprimir el archivo .zip
 3. **Instalar**: Ejecutar `INSTALAR.bat` como administrador
-4. **Ejecutar**: Buscar "MueveMouse" en el menú inicio
+4. **Compilar**: El instalador compilará MueveMouse en tu sistema
+5. **Ejecutar**: Se creará un acceso directo en el escritorio
+
+**⚠️ Requisitos previos:**
+- Python 3.7+ instalado desde [python.org](https://python.org)
+- Marcar "Add Python to PATH" durante la instalación
+- Conexión a internet para descargar dependencias
 
 ### 🐧 Linux
 
